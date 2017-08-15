@@ -37,7 +37,7 @@ attr_reader :id, :name, :city, :state, :department
    database
   end
 
-  def self.update(id, task_params)
+  def self.update(id, robot_params)
     database.execute("UPDATE robots
                       SET name = ?,
                           city = ?,
@@ -47,7 +47,7 @@ attr_reader :id, :name, :city, :state, :department
                       robot_params[:name],
                       robot_params[:city],
                       robot_params[:state],
-                      robot_params[:deparment],
+                      robot_params[:department],
                       id)
 
     Robot.find(id)

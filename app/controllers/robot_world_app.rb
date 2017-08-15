@@ -10,7 +10,6 @@ class RobotWorldApp < Sinatra::Base
   end
 
   get '/robots' do
-    @location = params[:location]
     @robots = Robot.all
     erb :index
   end
@@ -45,7 +44,7 @@ class RobotWorldApp < Sinatra::Base
   end
 
   delete '/robots/:id' do |id|
-    Task.destroy(id.to_i)
+    Robot.destroy(id.to_i)
     redirect '/robots'
   end
 
